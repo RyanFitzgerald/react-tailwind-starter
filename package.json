@@ -6,11 +6,16 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "clsx": "^1.1.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.3"
   },
   "scripts": {
+    "tailwind:build": "NODE_ENV=production postcss src/tailwind.css -o src/tailwind.output.css",
+    "tailwind:dev": "postcss src/tailwind.css -o src/tailwind.output.css",
+    "prestart": "npm run tailwind:dev",
+    "prebuild": "npm run tailwind:build",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
@@ -30,5 +35,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@fullhuman/postcss-purgecss": "^3.0.0",
+    "autoprefixer": "^10.0.1",
+    "postcss-cli": "^8.1.0",
+    "tailwindcss": "^1.9.4"
   }
 }
